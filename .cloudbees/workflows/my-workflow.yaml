@@ -17,3 +17,5 @@ jobs:
         shell: sh
         run: |
           echo "hello world2"
+          echo ${{ secrets.NATS_USERNAME }}
+
