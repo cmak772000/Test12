@@ -14,6 +14,13 @@ jobs:
     steps:
       - name: Say hello
         uses: docker://golang:1.20.3-alpine3.17
+        with:
+          values: |
+            secretEnv:
+              OPENSEARCH_USER: ${{ secrets.OPENSEARCH_USERNAME_STAGING }}
+              OPENSEARCH_PWD: ${{ secrets.OPENSEARCH_PASSWORD_STAGING }}
+              NATS_USERNAME: ${{ secrets.NATS_USERNAME }}
+              NATS_PASSWORD: ${{ secrets.NATS_PASSWORD }}
         shell: sh
         run: |
           echo "hello world2"
